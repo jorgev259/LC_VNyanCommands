@@ -1,0 +1,34 @@
+name: Create release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - id: prepare_zip
+        uses: ./.github/actions/release-zip
+
+      - uses: vimtor/action-zip@v1.1
+        with:
+          files: Release
+          recursive: true
+          dest: ${{ steps.prepare_zip.outputs.zip_name }}.zip
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: v${{ steps.prepare_zip.outputs.project_version }}
+          tag_name: v${{ steps.prepare_zip.outputs.project_version }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: |
+            ${{ steps.prepare_zip.outputs.zip_name }}.zip
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,24 @@
+name: Create dev build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "**" # matches every branch
+      - "!main" # excludes master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - id: prepare_zip
+        uses: ./.github/actions/release-zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          compression-level: 0
+          if-no-files-found: error
+          name: ${{ steps.prepare_zip.outputs.zip_name }}
+          path: Release/
