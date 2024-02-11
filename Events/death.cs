@@ -2,10 +2,10 @@ using GameNetcodeStuff;
 using HarmonyLib;
 using UnityEngine;
 
-namespace VNyanCommands.Events.death
+namespace VNyanCommands.Events
 {
   [HarmonyPatch(typeof(PlayerControllerB))]
-  class EventDeath
+  class LocalPlayerDeath
   {
     [HarmonyPatch("KillPlayer")]
     [HarmonyPostfix]
