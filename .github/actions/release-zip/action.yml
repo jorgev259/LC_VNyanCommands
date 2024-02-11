@@ -33,6 +33,7 @@ runs:
       run: |
         mkdir -p Release/BepInEx/plugins
         cp -r bin/Release/netstandard2.1 Release/BepInEx/plugins/VNyanCommands
+        cp README.md Release/README.md
 
     - name: Get release file name
       id: zip_name
