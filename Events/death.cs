@@ -2,7 +2,7 @@ using GameNetcodeStuff;
 using HarmonyLib;
 using UnityEngine;
 
-namespace LC_VNyanCommands.Events.death
+namespace VNyanCommands.Events.death
 {
   [HarmonyPatch(typeof(PlayerControllerB))]
   class EventDeath

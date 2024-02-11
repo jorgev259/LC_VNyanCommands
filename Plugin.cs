@@ -5,7 +5,7 @@ using HarmonyLib;
 using System;
 using Websocket.Client;
 
-namespace LC_VNyanCommands
+namespace VNyanCommands
 {
   [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
   public class Plugin : BaseUnityPlugin
