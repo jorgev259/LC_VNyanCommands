@@ -66,19 +66,19 @@ Triggers on player death.
 <br />
 Available causes:
 
-- Unknown
-- Bludgeoning
-- Gravity
-- Blast
-- Strangulation
-- Suffocation
-- Mauling
-- Gunshots
-- Crushing
-- Drowning
-- Abandoned
-- Electrocution
-- Kicking
+- Unknown (Ghost Girl/Hygrodere/Baboon Hawk)
+- Bludgeoning (Shovel)
+- Gravity (Falling)
+- Blast (Landmine)
+- Strangulation (Bracken)
+- Suffocation (Snare Flea or Mask)
+- Mauling (Eyeless Dog etc)
+- Gunshots (Turret/Nutcracker Shotgun)
+- Crushing (Dropship/Extension Ladder)
+- Drowning (Lake)
+- Abandoned (Left behind)
+- Electrocution (Circuit Bees/Lightning)
+- Kicking (Nutcracker)
 
 Events:
 
