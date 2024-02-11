@@ -1,0 +1,50 @@
+name: Create release zip
+
+outputs:
+  project_version:
+    value: ${{ steps.project_version.outputs.version }}
+  zip_name:
+    value: ${{ steps.zip_name.outputs.value }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Install dependencies
+      shell: bash
+      run: dotnet restore
+
+    - name: Build
+      shell: bash
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Get version
+      id: project_version
+      uses: KageKirin/get-csproj-version@v0
+      with:
+        file: VNyanCommands.csproj
+
+    - name: Prepare Release
+      shell: bash
+      run: |
+        mkdir -p Release/BepInEx/plugins
+        cp -r bin/Release/netstandard2.1 Release/BepInEx/plugins/VNyanCommands
+
+    - name: Get release file name
+      id: zip_name
+      uses: mad9000/actions-find-and-replace-string@5
+      with:
+        source: LC_VNyanCommands-v${{ steps.project_version.outputs.version }}
+        find: "."
+        replace: "_"
+        replaceAll: true
+
+    - uses: vimtor/action-zip@v1.1
+      with:
+        files: Release
+        recursive: true
+        dest: ${{ steps.zip_name.outputs.value }}.zip
