@@ -1,6 +1,6 @@
+using System;
 using GameNetcodeStuff;
 using HarmonyLib;
-using UnityEngine;
 
 namespace VNyanCommands.Events
 {
@@ -42,6 +42,28 @@ namespace VNyanCommands.Events
       catch (Exception ex)
       {
         Plugin.logger.LogError("Error in PlayerControllerB.killPlayer.Postfix: " + ex);
+        Plugin.logger.LogError(ex.StackTrace);
+      }
+    }
+  }
+
+  [HarmonyPatch(typeof(BlobAI))]
+  [HarmonyPatch("SlimeKillPlayerEffectClientRpc")]
+  class SlimeDeath
+  {
+    public static void Postfix(int playerKilled)
+    {
+      try
+      {
+        PlayerControllerB localPlayerController = StartOfRound.Instance.localPlayerController;
+        PlayerControllerB killedPlayerController = StartOfRound.Instance.allPlayerScripts[playerKilled];
+
+        if (killedPlayerController == null || localPlayerController != killedPlayerController) return;
+        if (killedPlayerController.isPlayerDead) Plugin.sendWS("Death_Slime");
+      }
+      catch (Exception ex)
+      {
+        Plugin.logger.LogError("Error in BlobAISlimeKillPlayerEffectServerRpcPatch.Postfix: " + ex);
         Plugin.logger.LogError(ex.StackTrace);
       }
     }
