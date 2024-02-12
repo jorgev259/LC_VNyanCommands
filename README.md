@@ -38,7 +38,7 @@
     </li>
     <li><a href="#contributing">Advanced Configuration</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Credits</a></li>
+    <li><a href="#credits">Credits</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -64,6 +64,12 @@
 
 Triggers on player death.
 <br />
+<br />
+Events:
+
+- `LC_Death` (Triggers on player death no matter the cause)
+- `LC_Death_{Cause}` (Triggers on death by an specific cause). Example: `LC_Death_Electrocution`
+
 Available causes:
 
 - `Unknown` (Ghost Girl/Hygrodere/Baboon Hawk)
@@ -84,11 +90,6 @@ Available causes:
 - `Slime`
 - `Mask`
 - `Ghost`
-
-Events:
-
-- `LC_Death` (Triggers on player death no matter the cause)
-- `LC_Death_{Cause}` (Triggers on death by an specific cause). Example: `LC_Death_Electrocution`
 
 ## Credits
 
