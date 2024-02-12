@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using BepInEx.Logging;
 using BepInEx.Configuration;
 using HarmonyLib;
@@ -15,6 +15,7 @@ namespace VNyanCommands
     public static WebsocketClient wsClient;
 
     public static ConfigEntry<string> vnyanUrl = null;
+    public static ConfigEntry<string> prefix = null;
 
     private void StartWS()
     {
@@ -39,10 +40,18 @@ namespace VNyanCommands
       }
     }
 
+    static public void sendWS(string message)
+    {
+      string fullMessage = $"{prefix.Value}{message}";
+      logger.LogInfo($"Sending message: {fullMessage}");
+      wsClient.Send(fullMessage);
+    }
+
     private void Awake()
     {
       logger = Logger;
-      vnyanUrl = Config.Bind("General", "Vnyan Url", "ws://localhost:8000/vnyan", "VNyan WebSocket server URL. It can be modified in `Menu -> Misc -> WebSockets` on VNyan");
+      vnyanUrl = Config.Bind("General", "VnyanUrl", "ws://localhost:8000/vnyan", "VNyan WebSocket server URL. It can be modified in `Menu -> Misc -> WebSockets` on VNyan");
+      prefix = Config.Bind("General", "Prefix", "LC_", "Prefix added before every WS message");
 
       StartWS();
       logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
