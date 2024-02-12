@@ -66,21 +66,30 @@ Triggers on player death.
 <br />
 Available causes:
 
-- Unknown (Ghost Girl/Hygrodere/Baboon Hawk)
-- Bludgeoning (Shovel)
-- Gravity (Falling)
-- Blast (Landmine)
-- Strangulation (Bracken)
-- Suffocation (Snare Flea or Mask)
-- Mauling (Eyeless Dog etc)
-- Gunshots (Turret/Nutcracker Shotgun)
-- Crushing (Dropship/Extension Ladder)
-- Drowning (Lake)
-- Abandoned (Left behind)
-- Electrocution (Circuit Bees/Lightning)
-- Kicking (Nutcracker)
+- `Unknown` (Ghost Girl/Hygrodere/Baboon Hawk)
+- `Bludgeoning` (Shovel)
+- `Gravity` (Falling)
+- `Blast` (Landmine)
+- `Strangulation` (Bracken)
+- `Suffocation` (Snare Flea or Mask)
+- `Mauling` (Eyeless Dog, etc)
+- `Gunshots` (Turret/Nutcracker Shotgun)
+- `Crushing` (Dropship/Extension Ladder)
+- `Drowning` (Lake)
+- `Abandoned` (Left behind)
+- `Electrocution` (Circuit Bees/Lightning)
+- `Kicking` (Nutcracker)
+- `Spring`
+- `Spider`
+- `Slime`
+- `Mask`
+- `Ghost`
 
 Events:
 
 - `LC_Death` (Triggers on player death no matter the cause)
 - `LC_Death_{Cause}` (Triggers on death by an specific cause). Example: `LC_Death_Electrocution`
+
+## Credits
+
+- Advanced deaths referenced from [Coroner Mod](https://github.com/EliteMasterEric/Coroner)
