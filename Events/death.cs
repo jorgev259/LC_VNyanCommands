@@ -90,6 +90,25 @@ namespace VNyanCommands.Events
       }
     }
   }
+
+  [HarmonyPatch(typeof(DressGirlAI))]
+  [HarmonyPatch("OnCollideWithPlayer")]
+  class DressGirlAIOnCollideWithPlayerPatch
+  {
+    public static void Postfix(DressGirlAI __instance)
+    {
+      try
+      {
+        PlayerControllerB localPlayerController = StartOfRound.Instance.localPlayerController;
+        PlayerControllerB killedPlayerController = __instance.hauntingPlayer;
+        if (killedPlayerController == null || localPlayerController != killedPlayerController) return;
+        if (killedPlayerController.isPlayerDead) Plugin.sendWS("Death_Ghost");
+      }
+      catch (Exception e)
+      {
+        Plugin.logger.LogError("Error in DressGirlAIOnCollideWithPlayerPatch.Postfix: " + e);
+        Plugin.logger.LogError(e.StackTrace);
+      }
     }
   }
 }
