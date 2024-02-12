@@ -85,11 +85,11 @@ Available causes:
 - `Abandoned` (Left behind)
 - `Electrocution` (Circuit Bees/Lightning)
 - `Kicking` (Nutcracker)
-- `Spring`
-- `Spider`
-- `Slime`
-- `Mask`
-- `Ghost`
+- `Spring` (Coilhead)
+- `Cocoon` (Spider)
+- `Slime` (Hygrodere)
+- `Possession` (Masked)
+- `Decapitation` (Little Girl)
 
 ## Credits
 
