@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jorgev259/LC_VNyanCommands">
-    <img src="Assets/icon.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/jorgev259/LC_VNyanCommands/raw/main/Assets/icon.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Lethal Company VNyan Commands</h3>
@@ -30,16 +30,16 @@
     </li>
     <li><a href="#events">Available Events</a></li>
     <li>
-    <a href="#usage">Configuring VNyan</a>
+    <a>Configuring VNyan</a>
       <ul>
-        <li><a href="#configure-premade">Using premade graphs</a></li>
-        <li><a href="#configure-manual">Creating graph from scratch</a></li>
+        <li><a>Using premade graphs</a></li>
+        <li><a>Creating graph from scratch</a></li>
       </ul>
     </li>
-    <li><a href="#contributing">Advanced Configuration</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a>Advanced Configuration</a></li>
+    <li><a>Contact</a></li>
     <li><a href="#credits">Credits</a></li>
-    <li><a href="#license">License</a></li>
+    <li><a>License</a></li>
   </ol>
 </details>
 
@@ -48,14 +48,14 @@
 ### Using a mod manager
 
 1. Install [Thunderstore Mod Manager](https://www.overwolf.com/oneapp/Thunderstore-Thunderstore_Mod_Manager)
-2. Head to the the mod's [Thunderstore page](https://thunderstore.io/c/lethal-company/p/thechitoteam/SpectatorCameraConfig/)
+2. Head to the the mod's [Thunderstore page](https://thunderstore.io/c/lethal-company/p/thechitoteam/VNyanCommands/)
 3. Press "Install with Mod Manager"
 4. Follow instructions
 
 ### Manual method
 
 1. Install [BepInEx 5](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
-2. Download `LC_VNyanCommands-vX_X_X.zip` from the [Release Page](https://github.com/jorgev259/LC_VNyanCommands/releases/tag/v1.0.0) or [Thunderstore](https://thunderstore.io/c/lethal-company/p/thechitoteam/SpectatorCameraConfig/)
+2. Download `LC_VNyanCommands-vX_X_X.zip` from the [Release Page](https://github.com/jorgev259/LC_VNyanCommands/releases/) or [Thunderstore](https://thunderstore.io/c/lethal-company/p/thechitoteam/VNyanCommands/)
 3. Copy the `BepInEx` folder inside the zip file and paste into your Lethal Company game folder
 
 ## Available Events
