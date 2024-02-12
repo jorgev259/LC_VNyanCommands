@@ -69,6 +69,27 @@ namespace VNyanCommands.Events
     }
   }
 
+  [HarmonyPatch(typeof(MaskedPlayerEnemy))]
+  [HarmonyPatch("killAnimation")]
+  class EnemyMaskDeath
+  {
+    public static void Postfix(MaskedPlayerEnemy __instance)
+    {
+      try
+      {
+        PlayerControllerB localPlayerController = StartOfRound.Instance.localPlayerController;
+        PlayerControllerB killedPlayerController = __instance.inSpecialAnimationWithPlayer;
+
+        if (killedPlayerController == null || localPlayerController != killedPlayerController) return;
+        Plugin.sendWS("Death_Mask");
+      }
+      catch (Exception ex)
+      {
+        Plugin.logger.LogError("Error in MaskedPlayerEnemykillAnimationPatch.Postfix: " + ex);
+        Plugin.logger.LogError(ex.StackTrace);
+      }
+    }
+  }
     }
   }
 }
