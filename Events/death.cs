@@ -32,7 +32,7 @@ namespace VNyanCommands.Events
 
           if (deadBody?.attachedTo != null && deadBody.attachedTo.parent.name.Contains("WebHanger"))
           {
-            Plugin.sendWS("Death_Spider");
+            Plugin.sendWS("Death_Cocoon");
           }
         }
 
@@ -81,7 +81,7 @@ namespace VNyanCommands.Events
         PlayerControllerB killedPlayerController = __instance.inSpecialAnimationWithPlayer;
 
         if (killedPlayerController == null || localPlayerController != killedPlayerController) return;
-        Plugin.sendWS("Death_Mask");
+        Plugin.sendWS("Death_Possession");
       }
       catch (Exception ex)
       {
@@ -102,7 +102,7 @@ namespace VNyanCommands.Events
         PlayerControllerB localPlayerController = StartOfRound.Instance.localPlayerController;
         PlayerControllerB killedPlayerController = __instance.hauntingPlayer;
         if (killedPlayerController == null || localPlayerController != killedPlayerController) return;
-        if (killedPlayerController.isPlayerDead) Plugin.sendWS("Death_Ghost");
+        if (killedPlayerController.isPlayerDead) Plugin.sendWS("Death_Decapitation");
       }
       catch (Exception e)
       {
