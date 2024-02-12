@@ -9,18 +9,44 @@ namespace VNyanCommands.Events
   {
     [HarmonyPatch("KillPlayer")]
     [HarmonyPostfix]
-    private static void KillPlayer(
-      Vector3 bodyVelocity, bool spawnBody = true,
-      CauseOfDeath causeOfDeath = CauseOfDeath.Unknown,
-      int deathAnimation = 0
-    )
+    private static void KillPlayer(PlayerControllerB __instance, CauseOfDeath causeOfDeath = CauseOfDeath.Unknown)
     {
-      string fullMessage = $"LC_Death_{causeOfDeath}";
+      try
+      {
+        PlayerControllerB localPlayerController = StartOfRound.Instance.localPlayerController;
+        if (localPlayerController != __instance) return;
 
-      Plugin.wsClient.Send("LC_Death");
-      Plugin.wsClient.Send(fullMessage);
+        string fullMessage = $"Death_{causeOfDeath}";
+        DeadBodyInfo deadBody = __instance.deadBody;
 
-      Plugin.logger.LogInfo(fullMessage);
+        if (deadBody != null)
+        {
+
+          if (deadBody.detachedHead)
+          {
+            if (deadBody.name.Contains("RagdollSpring"))
+            {
+              Plugin.sendWS("Death_Spring");
+            }
+          }
+
+          if (deadBody?.attachedTo != null && deadBody.attachedTo.parent.name.Contains("WebHanger"))
+          {
+            Plugin.sendWS("Death_Spider");
+          }
+        }
+
+        Plugin.sendWS("Death");
+        Plugin.sendWS(fullMessage);
+      }
+      catch (Exception ex)
+      {
+        Plugin.logger.LogError("Error in PlayerControllerB.killPlayer.Postfix: " + ex);
+        Plugin.logger.LogError(ex.StackTrace);
+      }
+    }
+  }
+
     }
   }
 }
