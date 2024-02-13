@@ -97,9 +97,11 @@ Available causes:
 - `Possession` (Masked)
 - `Decapitation` (Little Girl)
 
+<br />
+
 ### Walkie Talkie
 
-Triggers holding Walkie Talkie and when speaking into it
+Triggers when holding Walkie Talkie and when speaking into it
 <br />
 <br />
 Events:
