@@ -28,7 +28,13 @@
         <li><a href="#manual-method">Manual Method</a></li>
       </ul>
     </li>
-    <li><a href="#events">Available Events</a></li>
+    <li>
+      <a href="#events">Available Events</a>
+      <ul>
+        <li><a href="#player-death">Player Death</a></li>
+        <li><a href="#walkie-talkie">Walkie Talkie</a></li>
+      </ul>
+    </li>
     <li>
     <a>Configuring VNyan</a>
       <ul>
@@ -90,6 +96,20 @@ Available causes:
 - `Slime` (Hygrodere)
 - `Possession` (Masked)
 - `Decapitation` (Little Girl)
+
+### Walkie Talkie
+
+Triggers holding Walkie Talkie and when speaking into it
+<br />
+<br />
+Events:
+
+- `WalkieTalkie_Hold_On`
+- `WalkieTalkie_Hold_Off`
+- `WalkieTalkie_Power_On`
+- `WalkieTalkie_Power_Off`
+- `WalkieTalkie_Speak_On`
+- `WalkieTalkie_Speak_Off`
 
 ## Credits
 
