@@ -106,12 +106,24 @@ Triggers when holding Walkie Talkie and when speaking into it
 <br />
 Events:
 
-- `WalkieTalkie_Hold_On`
-- `WalkieTalkie_Hold_Off`
-- `WalkieTalkie_Power_On`
-- `WalkieTalkie_Power_Off`
-- `WalkieTalkie_Speak_On`
-- `WalkieTalkie_Speak_Off`
+- `LC_WalkieTalkie_Hold_On`
+- `LC_WalkieTalkie_Hold_Off`
+- `LC_WalkieTalkie_Power_On`
+- `LC_WalkieTalkie_Power_Off`
+- `LC_WalkieTalkie_Speak_On`
+- `LC_WalkieTalkie_Speak_Off`
+
+<br />
+
+### Player Damage
+
+Triggers when the local player receives damage
+<br />
+<br />
+Events:
+
+- `LC_PlayerDamage`
+- `LC_PlayerDamage_Shovel`
 
 ## Credits
 
